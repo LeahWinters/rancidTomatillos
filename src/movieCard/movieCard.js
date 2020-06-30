@@ -9,8 +9,11 @@ const MovieCard = ( { title, movieImg, rating} ) => {
         className="poster-img"
         src={ movieImg }
       />
-      <p className="movie-title">{ title }</p>
-      <p className="avg-rating">{ rating }</p>
+      <div className="movie-name-rate">
+        <p className="movie-title">{ title }</p>
+        <p className="avg-rating">{ rating } Stars</p>
+      </div>
+      
     </section>
   );
 };
