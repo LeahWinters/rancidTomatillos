@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import NavBar from '../NavBar/NavBar';
 import { getMovies } from '../apiCalls';
+import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 class App extends Component {
   constructor() {
@@ -20,6 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
+        <MoviesContainer allMovies={ this.state.allMovies }/>
       </div>
     );
   }
