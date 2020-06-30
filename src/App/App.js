@@ -17,12 +17,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.allMovies);
     return (
-        <div className="App">
-          <NavBar />
-        </div>
-      );
+      <div className="App">
+        <NavBar />
+      </div>
+    );
   }
 }
 
