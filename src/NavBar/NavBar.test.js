@@ -7,9 +7,8 @@ import { render } from '@testing-library/react';
 
 describe('NavBar', () => {
   it('Should say name of application', () => {
-    const {getByText, screen} = render(<NavBar/>);
+    const { getByText } = render(<NavBar/>);
     expect(getByText('Rancid Tomatillos')).toBeInTheDocument();
-    expect(screen).toMatchSnapshot();
   });
 
   it('Should have login button', () => {
