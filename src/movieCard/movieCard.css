@@ -5,6 +5,8 @@
     justify-content: center;
     margin: 1%;
     width: 48%;
+    /* border-radius: 15px;
+    box-shadow: inset 6px 5px 15px 0px #ababab, inset -6px -9px 15px #fdf8f8; */
 }
 
 .poster-img {

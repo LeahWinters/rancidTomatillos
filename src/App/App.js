@@ -8,19 +8,26 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      allMovies: []
+      allMovies: [],
+      error: ''
     }
   }
 
   componentDidMount = async () => {
-    const movies = await getMovies();
-    this.setState({ ...this.state, allMovies: movies });
+    try {
+      const movies = await getMovies();
+      this.setState({ ...this.state, allMovies: movies });
+      
+    } catch(error) {
+      this.setState({error: error});
+    }
   }
 
   render() {
     return (
       <div className="App">
         <NavBar />
+        { this.state.error && <h2>Oops! Something went wrong. Please try again.</h2> }
         <MoviesContainer allMovies={ this.state.allMovies }/>
       </div>
     );
