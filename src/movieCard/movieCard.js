@@ -13,7 +13,6 @@ const MovieCard = ( { title, movieImg, rating} ) => {
         <p className="movie-title">{ title }</p>
         <p className="avg-rating">{ rating } Stars</p>
       </div>
-      
     </section>
   );
 };
