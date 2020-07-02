@@ -1,31 +1,33 @@
 .MovieCard {
-    display: flex;
-    align-items: center;
-    /* flex-direction: row; */
-    justify-content: center;
-    margin: 1%;
-    width: 48%;
-    /* border-radius: 15px;
-    box-shadow: inset 6px 5px 15px 0px #ababab, inset -6px -9px 15px #fdf8f8; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  width: 48%;
+  border: solid 1px blue;
+  background-color: #EDE9EC;
+    border-radius: 15px;
+    box-shadow: inset 6px 5px 15px 0px #ababab, inset -4px -3px 15px #08435E;
 }
 
 .poster-img {
     width: 30%;
+  height: 93%;
 }
 
 .movie-name-rate {
-    display: flex;
-    flex-direction: column;
-    /* border: solid blue; */
-    height: 20%;
-    width: 30%;
+  display: flex;
+  flex-direction: column;
+  height: 47%;
+  justify-content: center;
+  width: 45%;
 }
 
 .movie-title {
-    font-size: 2.5em;
+  font-size: 2.5em;
 }
 
 .avg-rating {
-    font-size: 1.6em;
-    margin-top: 2%;
+  font-size: 1.6em;
+  margin-top: 2%;
 }
