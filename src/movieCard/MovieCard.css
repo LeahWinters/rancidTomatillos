@@ -5,13 +5,13 @@
   margin: 1%;
   width: 48%;
   border: solid 1px blue;
-  background-color: #EDE9EC;
-    border-radius: 15px;
-    box-shadow: inset 6px 5px 15px 0px #ababab, inset -4px -3px 15px #08435E;
+  background-color: #ede9ec;
+  border-radius: 15px;
+  box-shadow: inset 6px 5px 15px 0px #ababab, inset -4px -3px 15px #08435e;
 }
 
 .poster-img {
-    width: 30%;
+  width: 30%;
   height: 93%;
 }
 

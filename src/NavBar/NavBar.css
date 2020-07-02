@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* border: solid 1px red; */
   background-color: #08435E;
   height: 9%;
   align-items: center;
@@ -15,16 +14,17 @@ h1 {
 }
 
 .login-btn {
+  background-color: #EDE9EC;
   padding: 13% 30% 13% 30%;
   font-size: 1.5em;
   border-radius: 6px;
   cursor: pointer;
   border: none;
+  box-shadow: inset 1px 2px 15px 0px #ababab, inset -4px -3px 10px #08435E;
 }
 
 .login-btn:hover {
   background-color: #A1DCF7;
-  /* border: #12A1E2; */
 }
 
 
