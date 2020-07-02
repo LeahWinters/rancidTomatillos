@@ -1,18 +1,18 @@
 .MovieCard {
-  display: flex;
   align-items: center;
+  background-color: #ede9ec;
+  border: solid 1px blue;
+  border-radius: 15px;
+  box-shadow: inset 6px 5px 15px 0px #ababab, inset -4px -3px 15px #08435e;
+  display: flex;
   justify-content: center;
   margin: 1%;
   width: 48%;
-  border: solid 1px blue;
-  background-color: #ede9ec;
-  border-radius: 15px;
-  box-shadow: inset 6px 5px 15px 0px #ababab, inset -4px -3px 15px #08435e;
 }
 
 .poster-img {
-  width: 30%;
   height: 93%;
+  width: 30%;
 }
 
 .movie-name-rate {

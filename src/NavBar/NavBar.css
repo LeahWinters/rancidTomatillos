@@ -1,26 +1,26 @@
 .NavBar {
+  align-items: center;
+  background-color: #08435E;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  background-color: #08435E;
   height: 9%;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
 h1 {
-  margin-right: 50%;
-  font-size: 2.2em;
   color: #EDE9EC;
+  font-size: 2.2em;
+  margin-right: 50%;
 }
 
 .login-btn {
   background-color: #EDE9EC;
-  padding: 13% 30% 13% 30%;
-  font-size: 1.5em;
-  border-radius: 6px;
-  cursor: pointer;
   border: none;
+  border-radius: 6px;
   box-shadow: inset 1px 2px 15px 0px #ababab, inset -4px -3px 10px #08435E;
+  cursor: pointer;
+  font-size: 1.5em;
+  padding: 13% 30% 13% 30%;
 }
 
 .login-btn:hover {
