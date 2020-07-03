@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from '../NavBar/NavBar';
 import { getMovies } from '../apiCalls';
@@ -11,15 +11,24 @@ class App extends Component {
     super();
     this.state = {
       allMovies: [],
-      error: ''
+      error: '',
+      isLoggedIn: false,
+      name: '',
     }
   }
+
+  loggingIn = (name) => {
+    this.setState({...this.state, isLoggedIn: true, name})
+  }
+
+  // signOut = () => {
+  //   this.setState({...this.state, isLoggedIn: false});
+  // }
 
   componentDidMount = async () => {
     try {
       const movies = await getMovies();
       this.setState({ ...this.state, allMovies: movies });
-      
     } catch(error) {
       this.setState({error: error});
     }
@@ -33,7 +42,7 @@ class App extends Component {
               path="/login"
               component={() => (
                 <div className="login-page">
-                  <Login />
+                  <Login loggedOn={ this.state.isLoggedIn } loggingIn={ this.loggingIn }/>
                 </div>
               )}
             />
