@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-// import { postLogin } from "../apiCalls";
+import { postLogin } from "../apiCalls";
 
 class Login extends Component {
   constructor(props) {
@@ -22,27 +22,9 @@ class Login extends Component {
     this.returnResponse();
   };
 
-  postLogin = async (email, password) => {
-    const response = await fetch (
-      "https://rancid-tomatillos.herokuapp.com/api/v2/login", {
-        "method": "POST",
-        "headers": {
-          "content-type": "application/json"
-        },
-        "body": JSON.stringify({
-          "email": email,
-          "password": password
-        })
-      }
-    )
-    const message = await response.json();
-    console.log(message)
-    return message;
-  }
-
   returnResponse = async () => {
     try {
-      const response = await this.postLogin(this.state.email, this.state.password);
+      const response = await postLogin(this.state.email, this.state.password);
       if (!response.ok) {
         this.setState({error: response.statusText})
         throw Error(response.statusText);  
@@ -54,10 +36,6 @@ class Login extends Component {
     }
   };
 
-  // need a fn to capture whats typed in the login inputs
-  // need a conditional fn that compares entered input values to assigned user info
-  // if entered info === assigned user info -> invoke post fn
-  // if entered info !== assigned user info -> display error message
 
   render() {
     return (
@@ -86,6 +64,7 @@ class Login extends Component {
           <div className="password-form">
             <p className="password">Password:</p>
             <input
+              type="password"
               className="login-input password-input"
               placeholder="Password"
               name="password"
