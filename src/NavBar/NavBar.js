@@ -13,7 +13,7 @@ function NavBar () {
       <h1>Rancid Tomatillos - The Site</h1>
       <Link to={`login`}>
         <button 
-          className="login-btn" 
+          className="login-btn-nav-bar" 
           // onClick={this.handleSubmit()}
           type='button'
           >
