@@ -1,0 +1,54 @@
+/* colors:
+blue: #08435e
+red: #991e29
+white: #ede9ec
+light blue: #a1dcf7
+*/
+
+.login-page {
+  height: 100vh;
+}
+.Login {
+  background-color:#08435e;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 13px 0px #000000c2;;
+  color: #ede9ec;
+  height: 40%;
+  justify-self: center;
+  margin: auto;
+  margin-top: 15vh;
+  padding: 30px;
+  width: 30%;
+}
+
+.login-input {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.password-input, .email-input, .name-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ede9ec;
+  box-shadow: inset 4px 7px 13px 0px #00000061, inset -2px -2px 4px 0px #8f8f8f1c;
+  border-radius: 30px;
+  color: black;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 5px;
+  outline: none;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.login-btn {
+  border: none;
+  outline: none;
+  height: 40px;
+  color: #ede9ec;
+  font-size: 18px;
+  background: #991e29;
+  border-radius: 20px;
+  box-shadow: 4px 7px 13px 0px #000000c2, inset 4px 7px 13px 0px #fb5858;
+  width: 100%
+}
