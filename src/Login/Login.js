@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import { postLogin } from "../apiCalls";
+import { Redirect } from "react-router-dom"
 
 class Login extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Login extends Component {
       name: "",
       email: "",
       password: "",
-      error: ""
+      error: "",
+      // loggedIn: false
     };
   }
 
@@ -21,23 +23,25 @@ class Login extends Component {
     e.preventDefault();
     this.returnResponse();
   };
-
+  
   returnResponse = async () => {
     try {
       const response = await postLogin(this.state.email, this.state.password);
       if (!response.ok) {
         this.setState({error: response.statusText})
         throw Error(response.statusText);  
-      }
+      } 
       this.props.loggingIn(this.state.name);
       return response;
     } catch (error) {
       this.setState({ error: error });
     }
+    
   };
 
 
   render() {
+    console.log(this.state.loggedIn)
     return (
       <section className="Login">
         <form onSubmit={ this.handleSubmit }>
