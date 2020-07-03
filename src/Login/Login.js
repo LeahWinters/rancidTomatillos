@@ -1,36 +1,109 @@
-import React, { Component } from 'react';
-import './Login.css';
+import React, { Component } from "react";
+import "./Login.css";
+// import { postLogin } from "../apiCalls";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      user: '',
-      email: '',
-      password: '',
-    }
+      name: "",
+      email: "",
+      password: "",
+      error: ""
+    };
   }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.returnResponse();
+  };
+
+  postLogin = async (email, password) => {
+    const response = await fetch (
+      "https://rancid-tomatillos.herokuapp.com/api/v2/login", {
+        "method": "POST",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "body": JSON.stringify({
+          "email": email,
+          "password": password
+        })
+      }
+    )
+    const message = await response.json();
+    console.log(message)
+    return message;
+  }
+
+  returnResponse = async () => {
+    try {
+      const response = await this.postLogin(this.state.email, this.state.password);
+      if (!response.ok) {
+        this.setState({error: response.statusText})
+        throw Error(response.statusText);  
+      }
+      this.props.loggingIn(this.state.name);
+      return response;
+    } catch (error) {
+      this.setState({ error: error });
+    }
+  };
+
+  // need a fn to capture whats typed in the login inputs
+  // need a conditional fn that compares entered input values to assigned user info
+  // if entered info === assigned user info -> invoke post fn
+  // if entered info !== assigned user info -> display error message
 
   render() {
     return (
-      <section className='Login'>
-        <form>
-          <div className='name-form'>
-            <p className='name'>Name:</p>
-            <input className='login-input name-input' placeholder='Name'></input>
+      <section className="Login">
+        <form onSubmit={ this.handleSubmit }>
+          <div className="name-form">
+            <p className="name">Name:</p>
+            <input
+              className="login-input name-input"
+              placeholder="Name"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            ></input>
           </div>
-          <div className='email-form'>
-            <p className='email'>Email:</p>
-            <input className='login-input email-input' placeholder='Email'></input>
+          <div className="email-form">
+            <p className="email">Email:</p>
+            <input
+              className="login-input email-input"
+              placeholder="Email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            ></input>
           </div>
-          <div className='password-form'>
-            <p className='password'>Password:</p>
-            <input className='login-input password-input' placeholder='Password'></input>
+          <div className="password-form">
+            <p className="password">Password:</p>
+            <input
+              className="login-input password-input"
+              placeholder="Password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            ></input>
           </div>
-          <button className='login-btn' type='button'>Login</button>
+          <button
+            className="login-btn"
+            type="button"
+            onClick={ this.handleSubmit }
+          >
+            Login
+          </button>
+          { this.state.error && <h2 className="login-error">Incorrect username or password. Please try again.</h2> }
         </form>
       </section>
-    )
+    );
   }
 }
 

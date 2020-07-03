@@ -64,3 +64,12 @@
   outline: none;
   width: 100%
 }
+
+.login-error {
+  color: red;
+  font-size: 1.3em;
+  margin-top: 4%;
+  font-style: italic;
+  font-weight: 400;
+  
+}
