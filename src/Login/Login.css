@@ -1,24 +1,18 @@
-/* colors:
-blue: #08435e
-red: #991e29
-white: #ede9ec
-light blue: #a1dcf7
-*/
-
-.login-page {
-  height: 100vh;
-}
 .Login {
   background-color:#08435e;
   border-radius: 30px;
   box-shadow: inset 0px 0px 13px 0px #000000c2;;
   color: #ede9ec;
-  height: 40%;
   justify-self: center;
   margin: auto;
   margin-top: 15vh;
+  min-height: 40%;
   padding: 30px;
   width: 30%;
+}
+
+.login-page {
+  height: 100vh;
 }
 
 .login-input {
@@ -26,29 +20,47 @@ light blue: #a1dcf7
   width: 100%;
 }
 
-.password-input, .email-input, .name-input {
+.name-form,
+.email-form,
+.password-form {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.name,
+.email,
+.password {
+  font-size: 1.3em;
+  margin-right: 5%;
+}
+
+.password-input, 
+.email-input, 
+.name-input {
   background: transparent;
   border: none;
   border-bottom: 1px solid #ede9ec;
   box-shadow: inset 4px 7px 13px 0px #00000061, inset -2px -2px 4px 0px #8f8f8f1c;
   border-radius: 30px;
-  color: black;
+  color: #ede9ec;
   font-size: 16px;
   height: 40px;
   margin-top: 5px;
   outline: none;
   padding-left: 20px;
-  width: 100%;
+  width: 90%;
 }
 
 .login-btn {
-  border: none;
-  outline: none;
-  height: 40px;
-  color: #ede9ec;
-  font-size: 18px;
   background: #991e29;
+  border: none;
   border-radius: 20px;
   box-shadow: 4px 7px 13px 0px #000000c2, inset 4px 7px 13px 0px #fb5858;
+  color: #ede9ec;
+  cursor: pointer;
+  font-size: 18px;
+  height: 40px;
+  outline: none;
   width: 100%
 }
