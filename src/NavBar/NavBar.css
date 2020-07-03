@@ -13,7 +13,7 @@ h1 {
   margin-right: 50%;
 }
 
-.login-btn {
+.login-btn-nav-bar {
   background-color: #EDE9EC;
   border: none;
   border-radius: 6px;
@@ -23,7 +23,7 @@ h1 {
   padding: 13% 30% 13% 30%;
 }
 
-.login-btn:hover {
+.login-btn-nav-bar:hover {
   background-color: #A1DCF7;
 }
 
