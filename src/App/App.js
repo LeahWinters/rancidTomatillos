@@ -42,7 +42,7 @@ class App extends Component {
               path="/login"
               component={() => (
                 <div className="login-page">
-                  <Login loggedOn={ this.state.isLoggedIn } loggingIn={ this.loggingIn }/>
+                  <Login isLoggedIn={ this.state.isLoggedIn } loggingIn={ this.loggingIn }/>
                 </div>
               )}
             />
