@@ -10,8 +10,8 @@ class Login extends Component {
       name: "",
       email: "",
       password: "",
-      error: "",
-      // loggedIn: false
+      error: false,
+      // redirect: false
     };
   }
 
@@ -27,21 +27,25 @@ class Login extends Component {
   returnResponse = async () => {
     try {
       const response = await postLogin(this.state.email, this.state.password);
-      if (!response.ok) {
-        this.setState({error: response.statusText})
+      // console.log(response)
+      if (response.error) {
+        this.setState({error: true})
         throw Error(response.statusText);  
-      } 
+      }  
       this.props.loggingIn(this.state.name);
       return response;
     } catch (error) {
       this.setState({ error: error });
     }
-    
   };
 
-
   render() {
-    console.log(this.state.loggedIn)
+    // console.log(this.state.error);
+
+    if(this.props.isLoggedIn) {
+      return <Redirect to='/user-movie-page' />;
+    }
+
     return (
       <section className="Login">
         <form onSubmit={ this.handleSubmit }>
