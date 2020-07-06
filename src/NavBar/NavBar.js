@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.css';
-import { Link } from "react-router-dom";
-
+import { Link, Route } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom'
 function NavBar () {
 
   // handleSubmit = (e) => {
@@ -9,19 +9,21 @@ function NavBar () {
   // }
 
   return (
-    <section className="NavBar">
-      <h1>Rancid Tomatillos - The Site</h1>
-      <Link to={`login`}>
-        <button 
-          className="login-btn-nav-bar" 
-          // onClick={this.handleSubmit()}
-          type='button'
-          >
-            Login
-        </button>
-      </Link>
-      
-    </section>
+    <Router>
+      <section className="NavBar">
+        <h1>Rancid Tomatillos - The Site</h1>
+        <Link to={`login`}>
+          <button 
+            className="login-btn-nav-bar" 
+            // onClick={this.handleSubmit()}
+            type='button'
+            >
+              Login
+          </button>
+        </Link>
+        
+      </section>
+    </Router>
   )
 }
 

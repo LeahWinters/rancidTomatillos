@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar';
 import { getMovies } from '../apiCalls';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import Login from '../Login/Login';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -37,6 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Router>
           <Switch>
             <Route
               path="/login"
@@ -57,7 +59,7 @@ class App extends Component {
               )}
             />
           </Switch>
-        
+        </Router>
       </div>
     );
   }
