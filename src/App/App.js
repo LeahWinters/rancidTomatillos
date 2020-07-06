@@ -14,12 +14,18 @@ class App extends Component {
       error: "",
       isLoggedIn: false,
       name: "",
+      userId: ""
     };
   }
 
   loggingIn = (name) => {
-    this.setState({ ...this.state, isLoggedIn: true, name });
+    this.setState( { ...this.state, isLoggedIn: true, name } );
   };
+
+  getUserId = (id) => {
+    this.setState( { ...this.state, userId: id } )
+    console.log('userId in app', this.state.userId)
+  }
 
   // signOut = () => {
   //   this.setState({...this.state, isLoggedIn: false});
@@ -58,8 +64,9 @@ class App extends Component {
             component={() => (
               <div className="login-page">
                 <Login
-                  isLoggedIn={this.state.isLoggedIn}
-                  loggingIn={this.loggingIn}
+                  isLoggedIn={ this.state.isLoggedIn }
+                  loggingIn={ this.loggingIn }
+                  getUserId={ this.getUserId }
                 />
               </div>
             )}
