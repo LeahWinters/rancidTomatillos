@@ -14,22 +14,22 @@ class App extends Component {
       error: "",
       isLoggedIn: false,
       name: "",
-      userId: ""
+      userId: "",
     };
   }
 
   loggingIn = (name) => {
-    this.setState( { ...this.state, isLoggedIn: true, name } );
+    this.setState({ ...this.state, isLoggedIn: true, name });
   };
 
   getUserId = (id) => {
-    this.setState( { ...this.state, userId: id } )
-    console.log('userId in app', this.state.userId)
-  }
+    this.setState({ ...this.state, userId: id });
+    console.log("userId in app", this.state.userId);
+  };
 
-  // signOut = () => {
-  //   this.setState({...this.state, isLoggedIn: false});
-  // }
+  signOut = () => {
+    this.setState({ ...this.state, isLoggedIn: false });
+  };
 
   componentDidMount = async () => {
     try {
@@ -48,16 +48,19 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route
-              path="user-movie-page"
+              path="/user-movie-page"
               component={() => (
                 <div className="home-page">
-                  <NavBar />
-                  <MoviesContainer 
-                  allMovies={this.state.allMovies}
-                  userName={this.state.name}
-                  isLoggedIn={this.state.isLoggedIn}
-                />
-                </div> 
+                  <NavBar
+                    isLoggedIn={this.state.isLoggedIn}
+                    signOut={this.signOut}
+                  />
+                  <MoviesContainer
+                    allMovies={this.state.allMovies}
+                    userName={this.state.name}
+                    isLoggedIn={this.state.isLoggedIn}
+                  />
+                </div>
               )}
             />
             <Route
@@ -65,18 +68,21 @@ class App extends Component {
               component={() => (
                 <div className="login-page">
                   <Login
-                    isLoggedIn={ this.state.isLoggedIn }
-                    loggingIn={ this.loggingIn }
-                    getUserId={ this.getUserId }
+                    isLoggedIn={this.state.isLoggedIn}
+                    loggingIn={this.loggingIn}
+                    getUserId={this.getUserId}
                   />
                 </div>
               )}
             />
             <Route
-              path="/"
+              exact path="/"
               component={() => (
                 <div className="home-page">
-                  <NavBar />
+                  <NavBar
+                    isLoggedIn={this.state.isLoggedIn}
+                    signOut={this.signOut}
+                  />
                   {this.state.error && (
                     <h2>Oops! Something went wrong. Please try again.</h2>
                   )}
