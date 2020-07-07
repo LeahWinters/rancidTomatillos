@@ -4,3 +4,19 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.moviesContainer-logged-in {
+  background-color: #991e29;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.welcome {
+  color: #ede9ec;
+  font-size: 2.3em;
+  height: 5%;
+  margin-right: 60%;
+  margin-top: 1%;
+  width: 100vw;
+}

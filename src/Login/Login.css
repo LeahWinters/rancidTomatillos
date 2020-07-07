@@ -35,6 +35,10 @@
   margin-right: 5%;
 }
 
+.email-input, 
+.name-input {
+  margin-left: 10%;
+}
 .password-input, 
 .email-input, 
 .name-input {
@@ -49,7 +53,7 @@
   margin-top: 5px;
   outline: none;
   padding-left: 20px;
-  width: 90%;
+  width: 70%;
 }
 
 .login-btn {
@@ -63,6 +67,10 @@
   height: 40px;
   outline: none;
   width: 100%
+}
+
+.login-btn:hover {
+  box-shadow: inset 4px 7px 13px 0px #000000c2;
 }
 
 .login-error {
