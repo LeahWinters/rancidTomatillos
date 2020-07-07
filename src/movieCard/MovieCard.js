@@ -2,7 +2,7 @@ import React from "react";
 import "./MovieCard.css";
 
 const MovieCard = ({ title, movieImg, rating, isLoggedIn }) => {
-  if (isLoggedIn === false) {
+  if (!isLoggedIn) {
     return (
       <section className="MovieCard">
         <img alt="movie poster img" className="poster-img" src={movieImg} />

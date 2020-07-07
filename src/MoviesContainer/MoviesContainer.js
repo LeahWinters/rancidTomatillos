@@ -14,7 +14,15 @@ const MoviesContainer = ( { allMovies, userName, isLoggedIn } ) => {
       />
     );
   });
-  return <section className="moviesContainer">{ movieCards }</section>;
+  if(!isLoggedIn) {
+    return (<section className="moviesContainer">{ movieCards }</section>);
+  } else {
+    return (<section className="moviesContainer-logged-in">
+      <h3 className="welcome">Welcome { userName }</h3> 
+      { movieCards }
+      </section>);
+  }
+  
 };
 
 export default MoviesContainer;
