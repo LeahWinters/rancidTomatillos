@@ -15,11 +15,15 @@ const MovieCard = ({ title, movieImg, rating, isLoggedIn }) => {
   } else {
     return (
       <section className="MovieCard">
-        <p>You are logged in!</p>
         <img alt="movie poster img" className="poster-img" src={movieImg} />
         <div className="movie-name-rate">
           <p className="movie-title">{title}</p>
           <p className="avg-rating">{rating} Stars</p>
+          <button 
+            className="view-movie-dets" 
+            type="button">
+              View Movie Details
+          </button>
         </div>
       </section>
     );
