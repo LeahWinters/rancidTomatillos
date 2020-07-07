@@ -4,6 +4,7 @@ import "./App.css";
 import NavBar from "../NavBar/NavBar";
 import { getMovies } from "../apiCalls";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
+import MovieDetails from "../MovieDetails/MovieDetails"
 import Login from "../Login/Login";
 
 class App extends Component {
@@ -47,6 +48,14 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
+            <Route
+              path={"/:title/:id"}
+              render={ ({ match }) => {
+                const { id } = match.params;
+                const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
+                return <MovieDetails {...movieToRender}/>
+              }}
+            />
             <Route
               path="/user-movie-page"
               component={() => (

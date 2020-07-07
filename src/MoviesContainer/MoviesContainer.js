@@ -9,9 +9,10 @@ const MoviesContainer = ( { allMovies, userName, isLoggedIn } ) => {
         title={ movie.title }
         movieImg={ movie.poster_path }
         rating={ movie.average_rating }
-        // check project to see what info you need to display if user is logged in
         isLoggedIn= { isLoggedIn }
+        movieId={ movie.id }
       />
+      
     );
   });
   if(!isLoggedIn) {

@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./MovieCard.css";
 
-const MovieCard = ({ title, movieImg, rating, isLoggedIn }) => {
+const MovieCard = ({ title, movieImg, rating, isLoggedIn, movieId }) => {
   if (!isLoggedIn) {
     return (
       <section className="MovieCard">
@@ -19,11 +20,13 @@ const MovieCard = ({ title, movieImg, rating, isLoggedIn }) => {
         <div className="movie-name-rate">
           <p className="movie-title">{title}</p>
           <p className="avg-rating">{rating} Stars</p>
-          <button 
-            className="view-movie-dets" 
-            type="button">
-              View Movie Details
-          </button>
+          <Link to={`/${title}/${movieId}`}>
+            <button 
+              className="view-movie-dets" 
+              type="button">
+                View Movie Details
+            </button>
+          </Link>
         </div>
       </section>
     );
