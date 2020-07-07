@@ -10,6 +10,7 @@ describe('MoviesContainer', () => {
   it('should equal true', () => {
     expect(true).toBe(true)
   })
+  
   // it('should display movie title', async () => {
   //   const allMovies = [
   //     {

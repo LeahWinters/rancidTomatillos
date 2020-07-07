@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 
 describe('App', () => {
 
@@ -14,5 +14,18 @@ describe('App', () => {
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+
+  it('should render the nav bar' ,() => {
+
+  })
+
+  it('should render the movie container', () => {
+
+  })
+
+  it('should display an error on the home page if present', () => {
+
+  })
+  
 
 })

@@ -23,6 +23,4 @@ describe('MovieCard', () => {
     expect(getByText("The Matrix")).toBeInTheDocument();
     expect(getByText("Stars")).toBeInTheDocument();
   })
-
-
 });

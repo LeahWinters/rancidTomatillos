@@ -12,13 +12,21 @@ describe('NavBar', () => {
   })
 
   it('Should say name of application', () => {
+    // set up
     const { getByText } = render(<NavBar/>);
-    expect(getByText('Rancid Tomatillos - The Site')).toBeInTheDocument();
+    // execution
+    const title = getByText('Rancid Tomatillos - The Site');
+    //assertion
+    expect(title).toBeInTheDocument();
   });
 
   it('Should have login button', () => {
+    // setup
     const {getByText} = render(<NavBar/>);
-    expect(getByText('Login')).toBeInTheDocument();
+    // execution
+    const buttonText = getByText('Login')
+    // assertion
+    expect(buttonText).toBeInTheDocument();
   });
 
   // it('should link to the login page on click', () => {
@@ -30,6 +38,16 @@ describe('NavBar', () => {
     
   //   // // assert 
   // })
+
+  it('should display username on page after correct login', () => {
+
+  })
+
+  it('after login, button should say log out', () => {
+    
+  })
+
+
 
 
 

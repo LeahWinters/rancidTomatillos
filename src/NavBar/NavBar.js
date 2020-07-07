@@ -21,7 +21,6 @@ function NavBar () {
               Login
           </button>
         </Link>
-        
       </section>
     </Router>
   )
