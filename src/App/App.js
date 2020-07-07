@@ -50,7 +50,7 @@ class App extends Component {
             <Route
               path="/user-movie-page"
               component={() => (
-                <div className="home-page">
+                <div className="home-page-logged-in">
                   <NavBar
                     isLoggedIn={this.state.isLoggedIn}
                     signOut={this.signOut}
