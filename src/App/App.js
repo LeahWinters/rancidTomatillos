@@ -50,7 +50,9 @@ class App extends Component {
             path="user-movie-page"
             component={() => (
               <div className="home-page">
-                <NavBar />
+                <NavBar 
+                  isLoggedIn={ this.state.isLoggedIn }
+                />
                 <MoviesContainer 
                 allMovies={this.state.allMovies}
                 userName={this.state.name}
@@ -75,7 +77,9 @@ class App extends Component {
             path="/"
             component={() => (
               <div className="home-page">
-                <NavBar />
+                <NavBar 
+                  isLoggedIn={ this.state.isLoggedIn }
+                />
                 {this.state.error && (
                   <h2>Oops! Something went wrong. Please try again.</h2>
                 )}
