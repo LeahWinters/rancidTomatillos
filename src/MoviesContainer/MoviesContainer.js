@@ -22,7 +22,6 @@ const MoviesContainer = ( { allMovies, userName, isLoggedIn } ) => {
       { movieCards }
       </section>);
   }
-  
 };
 
 export default MoviesContainer;
