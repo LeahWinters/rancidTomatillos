@@ -1,28 +1,51 @@
-import React from 'react';
-import './NavBar.css';
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import "./NavBar.css";
+import { Link, Redirect } from "react-router-dom";
 
-function NavBar () {
+class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  // }
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.signOut();
+  };
 
-  return (
-    <section className="NavBar">
-      <h1>Rancid Tomatillos - The Site</h1>
-      <Link to={`login`}>
-        <button 
-          className="login-btn-nav-bar" 
-          // onClick={this.handleSubmit()}
-          type='button'
-          >
-            Login
-        </button>
-      </Link>
-      
-    </section>
-  )
+  render() {
+
+    if (!this.props.isLoggedIn) {
+      return (
+        <section className="NavBar">
+          <h1>Rancid Tomatillos - The Site</h1>
+          <Link to={`login`}>
+            <button
+              className="login-btn-nav-bar"
+              type="button"
+            >
+              Login
+            </button>
+          </Link>
+        </section>
+      );
+    } else {
+      return (
+        <section className="NavBar">
+          <h1>Rancid Tomatillos - The Site</h1>
+          <Link to="/">
+            <button
+              className="login-btn-nav-bar"
+              onClick={this.handleClick}
+              type="button"
+            >
+              Logout
+            </button>
+          </Link>
+        </section>
+      );
+    }
+  }
 }
 
 export default NavBar;

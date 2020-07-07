@@ -11,7 +11,6 @@ class Login extends Component {
       email: "",
       password: "",
       error: false,
-      // redirect: false
     };
   }
 
@@ -29,11 +28,11 @@ class Login extends Component {
       const response = await postLogin(this.state.email, this.state.password);
       console.log('response', response.user.id)
       if (response.error) {
-        this.setState({error: true})
+        this.setState({error: true});
         throw Error(response.statusText);  
       }  
       this.props.loggingIn(this.state.name);
-      this.props.getUserId(response.user.id)
+      this.props.getUserId(response.user.id);
       return response;
     } catch (error) {
       this.setState({ error: error });
