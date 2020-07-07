@@ -1,9 +1,8 @@
 .MovieCard {
   align-items: center;
   background-color: #ede9ec;
-  border: solid 1px blue;
   border-radius: 15px;
-  box-shadow: inset 6px 5px 15px 0px #ababab, inset -4px -3px 15px #08435e;
+  box-shadow: inset 6px 5px 15px 0px #ABABAB, inset -4px -3px 15px #08435E;
   display: flex;
   justify-content: center;
   margin: 1%;
@@ -16,9 +15,10 @@
 }
 
 .movie-name-rate {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  height: 47%;
+  height: 70%;
   justify-content: center;
   width: 45%;
 }
@@ -30,4 +30,20 @@
 .avg-rating {
   font-size: 1.6em;
   margin-top: 2%;
+}
+
+.view-movie-dets {
+  background-color: #08435E;
+  border: none;
+  border-radius: 6px;
+  color: #EDE9EC;
+  cursor: pointer;
+  font-size: 1.2em;
+  height: 25%;
+  margin-top: 8%;
+  width: 60%;
+}
+
+.view-movie-dets:hover {
+  background-color: #0E78AA;
 }
