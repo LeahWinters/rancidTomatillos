@@ -28,7 +28,7 @@ export const postLogin = async (email, password) => {
 
 export const getMovieDetails = async (movieId) => {
   const response = await fetch (
-    `https://rancid-tomatillos.herokuapp.com/api/v/movies/${movieId}`
+    `${url}/movies/${movieId}`
   );
   const movieDetails = await response.json();
   console.log(movieDetails)
