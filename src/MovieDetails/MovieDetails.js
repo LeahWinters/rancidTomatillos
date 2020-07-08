@@ -7,13 +7,17 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      movieDetails: "",
       error: false,
     }
   }
-  returnDetails = async () => {
+
+  componentDidMount = async () => {
     try {
-      const response = await getMovieDetails();
-      console.log(response)
+      const response  = await getMovieDetails(this.props.id);
+      console.log("response",response)
+      this.setState({...this.state, movieDetails: response.movie })
+      
       if (response.error) {
         this.setState({error: true});
         throw Error(response.statusText);  
@@ -21,12 +25,10 @@ class MovieDetails extends Component {
     } catch(error) {
       this.setState({ error: error })
     }
-
+    
   }
 
-
   render() {
-    // console.log("return details", this.returnDetails)
     console.log("movie", this.props)
     return(
       <h4>MovieDetails</h4>
