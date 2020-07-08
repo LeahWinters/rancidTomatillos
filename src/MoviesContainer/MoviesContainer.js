@@ -9,7 +9,7 @@ const MoviesContainer = ( { allMovies, userName, isLoggedIn } ) => {
         title={ movie.title }
         movieImg={ movie.poster_path }
         rating={ movie.average_rating }
-        isLoggedIn= { isLoggedIn }
+        isLoggedIn={ isLoggedIn }
         movieId={ movie.id }
       />
       

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Router, BrowserRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import NavBar from "../NavBar/NavBar";
 import { getMovies } from "../apiCalls";
@@ -42,8 +42,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("isLoggedIn:", this.state.isLoggedIn);
-
     return (
       <div className="App">
         <BrowserRouter>
@@ -53,6 +51,7 @@ class App extends Component {
               render={ ({ match }) => {
                 const { id } = match.params;
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
+                console.log(movieToRender)
                 return <MovieDetails {...movieToRender}/>
               }}
             />
