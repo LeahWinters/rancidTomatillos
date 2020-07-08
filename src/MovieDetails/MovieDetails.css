@@ -60,3 +60,10 @@
   color: #EDE9EC;
   font-weight: bolder;
 }
+
+.error-message {
+  color: #EDE9EC;
+  font-weight: bolder;
+  margin: 2%;
+  font-size: 2.5em;
+}
