@@ -55,7 +55,7 @@ class App extends Component {
                 return (
                   <div className="movie-dets-and-form">
                     <MovieDetails {...movieToRender}/>
-                    <RateMovieForm />
+                    
                   </div>
                 )
               }}
