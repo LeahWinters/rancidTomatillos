@@ -4,7 +4,8 @@ import "./App.css";
 import NavBar from "../NavBar/NavBar";
 import { getMovies } from "../apiCalls";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
-import MovieDetails from "../MovieDetails/MovieDetails"
+import MovieDetails from "../MovieDetails/MovieDetails";
+import RateMovieForm from "../RateMovieForm/RateMovieForm";
 import Login from "../Login/Login";
 
 class App extends Component {
@@ -51,8 +52,12 @@ class App extends Component {
               render={ ({ match }) => {
                 const { id } = match.params;
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
-                console.log(movieToRender)
-                return <MovieDetails {...movieToRender}/>
+                return (
+                  <div className="movie-dets-and-form">
+                    <MovieDetails {...movieToRender}/>
+                    <RateMovieForm />
+                  </div>
+                )
               }}
             />
             <Route
