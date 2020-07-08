@@ -1,0 +1,62 @@
+.MovieDetails {
+
+}
+
+.movie-title-and-back-btn {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1% 0.5%;
+  background-color: #08435E;
+}
+
+.movie-title-dets-page {
+  color: #EDE9EC;
+  font-size: 3em;
+  margin-right: 58%;
+}
+
+.back-to-all-movies-btn {
+  border: none;
+  border-radius: 6px;
+  box-shadow: inset 1px 2px 15px 0px #ababab, inset -4px -3px 10px #08435E;
+  background-color: #EDE9EC;
+  font-size: 1.2em;
+  padding: 0.9%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.back-to-all-movies-btn:hover {
+  background-color: #A1DCF7;
+}
+
+.movie-dets-img-holder {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2%;
+}
+
+.backdrop-img {
+  width: 40%;
+}
+
+.movie-dets {
+  width: 46%;
+  color: #EDE9EC;
+  font-weight: bolder;
+}
+
+.dets {
+  font-size: 1.7em;
+  margin: 2%;
+}
+
+.movie-overview {
+  max-height: 40%;
+  width: 80%;
+  margin: 2% 0 2% 11%;
+  font-size: 1.4em;
+  color: #EDE9EC;
+  font-weight: bolder;
+}

@@ -30,8 +30,7 @@ const MovieCard = ({ title, movieImg, rating, isLoggedIn, movieId }) => {
         </div>
       </section>
     );
-  }
-  
+  } 
 };
 
 export default MovieCard;

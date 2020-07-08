@@ -1,0 +1,59 @@
+.RateMovieForm {
+  width: 40%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: solid 1px; */
+  margin-left: 31%;
+  background-color: #08435E;
+  border-radius: 6px;
+}
+
+.rate-this-movie {
+  color: #EDE9EC;
+  font-size: 2em;
+}
+
+.rate-movie-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  height: 60%;
+}
+
+.rate-movie-select {
+  color: #EDE9EC;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 35%;
+  width: 40%;
+  margin-top: 3%;
+}
+
+.select-stars {
+  width: 33%;
+  height: 85%;
+  font-size: 1.4em;
+  margin-right: 5%;
+}
+
+.out-of-ten-stars {
+  font-size: 1.4em;
+}
+
+.submit-stars {
+  width: 23%;
+  cursor: pointer;
+  height: 40%;
+  margin-top: 4%;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 6px;
+  box-shadow: inset 1px 2px 15px 0px #ababab, inset -4px -3px 10px #08435E;
+  background-color: #EDE9EC;
+}

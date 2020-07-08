@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Switch, Route, Router, BrowserRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import NavBar from "../NavBar/NavBar";
 import { getMovies } from "../apiCalls";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
-import MovieDetails from "../MovieDetails/MovieDetails"
+import MovieDetails from "../MovieDetails/MovieDetails";
+import RateMovieForm from "../RateMovieForm/RateMovieForm";
 import Login from "../Login/Login";
 
 class App extends Component {
@@ -42,8 +43,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("isLoggedIn:", this.state.isLoggedIn);
-
     return (
       <div className="App">
         <BrowserRouter>
@@ -53,7 +52,12 @@ class App extends Component {
               render={ ({ match }) => {
                 const { id } = match.params;
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
-                return <MovieDetails {...movieToRender}/>
+                return (
+                  <div className="movie-dets-and-form">
+                    <MovieDetails {...movieToRender}/>
+                    <RateMovieForm />
+                  </div>
+                )
               }}
             />
             <Route
