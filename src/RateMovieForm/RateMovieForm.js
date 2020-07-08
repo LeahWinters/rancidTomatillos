@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './RateMovieForm.css'
 
 class RateMovieForm extends Component {
   constructor() {

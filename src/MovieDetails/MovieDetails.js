@@ -24,10 +24,26 @@ class MovieDetails extends Component {
     }
   };
 
+  // getGeneres = () => {
+    // const genres = this.state.movieDetails.genres;
+    // const seperatedGenres = genres.split(', ');
+    // return seperatedGenres;
+    // const splitGenres = JSON.stringify(this.state.movieDetails.genres);
+    // return splitGenres;
+  // }
+
   render() {
     return (
       <section className="MovieDetails">
-        <h2 className="movie-title-dets-page">{this.props.title}</h2>
+        <div className="movie-title-and-back-btn">
+          <h2 className="movie-title-dets-page">{this.props.title}</h2>
+          <button
+            className="back-to-all-movies-btn"
+            type="button"
+          >
+            View All Movies
+          </button>
+        </div>
         <div className="movie-dets-img-holder">
           <img
             className="backdrop-img"
@@ -35,13 +51,13 @@ class MovieDetails extends Component {
             src={this.props.backdrop_path}
           ></img>
           <div className="movie-dets">
-            <p>Release Date: {this.props.release_date}</p>
-            <p>Generes: {this.state.movieDetails.genres}</p>
-            <p>Budget: {this.state.movieDetails.budget}</p>
-            <p>Revenue: {this.state.movieDetails.revenue}</p>
-            <p>Runtime: {this.state.movieDetails.runtime}</p>
-            <p>Tagline: {this.state.movieDetails.tagline}</p>
-            <p>Average Rating: {this.state.movieDetails.average_rating}</p>
+            <p className="dets">Release Date: {this.props.release_date}</p>
+            <p className="dets">Generes: {this.state.movieDetails.genres}</p>
+            <p className="dets">Budget: {this.state.movieDetails.budget}</p>
+            <p className="dets">Revenue: {this.state.movieDetails.revenue}</p>
+            <p className="dets">Runtime: {this.state.movieDetails.runtime}</p>
+            <p className="dets">Tagline: {this.state.movieDetails.tagline}</p>
+            <p className="dets">Average Rating: {this.state.movieDetails.average_rating}</p>
           </div>
         </div>
         <p className="movie-overview">Overview: {this.state.movieDetails.overview}</p>
