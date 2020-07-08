@@ -1,5 +1,5 @@
 .MovieDetails {
-
+  height: 100vh;
 }
 
 .movie-title-and-back-btn {
@@ -59,6 +59,10 @@
   font-size: 1.4em;
   color: #EDE9EC;
   font-weight: bolder;
+}
+
+.rate-form {
+  height: 20%;
 }
 
 .error-message {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./MovieDetails.css";
 import { getMovieDetails } from "../apiCalls";
+import RateMovieForm from "../RateMovieForm/RateMovieForm";
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -55,6 +56,9 @@ class MovieDetails extends Component {
           <p className="movie-overview">
             Overview: {this.state.movieDetails.overview}
           </p>
+          <div className="rate-form">
+            {<RateMovieForm />}
+          </div>
         </section>
       );
     } else {
