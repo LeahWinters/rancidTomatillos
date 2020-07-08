@@ -1,6 +1,8 @@
+const url = "https://rancid-tomatillos.herokuapp.com/api/v2"
+
 export const getMovies = async () => {
   const response = await fetch (
-    "https://rancid-tomatillos.herokuapp.com/api/v2/movies"
+    `${url}/movies`
   );
   const movies = await response.json();
   const allMovies = movies.movies;
@@ -9,7 +11,7 @@ export const getMovies = async () => {
 
 export const postLogin = async (email, password) => {
   const response = await fetch (
-    "https://rancid-tomatillos.herokuapp.com/api/v2/login", {
+    `${url}/login`, {
       "method": "POST",
       "headers": {
         "content-type": "application/json"
@@ -26,12 +28,55 @@ export const postLogin = async (email, password) => {
   return message;
 }
 
-export const getMovieDetails = async (id) => {
+export const getMovieDetails = async (movieId) => {
   const response = await fetch (
-    `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
+    `${url}/movies/${movieId}`
   );
   const movieDetails = await response.json();
   return movieDetails;
 }
 
+export const getUserRatings = async (userId) => {
+  const response = await fetch(
+    `${url}/${userId}/ratings`
+  )
+  const userRatings = await response.json();
+  return userRatings;
+}
+
+export const postUserRating = async (userId, movieId, rating) => {
+  const response = await fetch(
+    `${url}/users/${userId}/ratings`, {
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": JSON.stringify({
+        movie_id: `${movieId}`,
+        rating:  `${rating}`
+      })
+    }
+  )
+  console.log(response)
+  const message = await response.json();
+  console.log('message', message)
+  return message;
+}
+
+export const deleteUserRating = async (userId, ratingId, rating, movieId) => {
+  const response = await fetch(
+    `${url}/users/${userId}/ratings/${ratingId}`, {
+      "method": "Delete",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": JSON.stringify({
+        movie_id: `${movieId}`,
+        rating:  `${rating}`
+      })
+    }
+  )
+  const message = await response.json()
+  return message;
+}
 
