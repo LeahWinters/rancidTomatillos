@@ -37,7 +37,7 @@ export const getMovieDetails = async (movieId) => {
 
 export const getUserRatings = async (userId) => {
   const response = await fetch(
-    `${url}/${userId}/ratings`
+    `${url}/users/${userId}/ratings`
   )
   const userRatings = await response.json();
   return userRatings;
