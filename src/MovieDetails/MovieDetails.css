@@ -4,10 +4,10 @@
 
 .movie-title-and-back-btn {
   align-items: center;
+  background-color: #08435E;
   display: flex;
   justify-content: space-evenly;
   padding: 1% 0.5%;
-  background-color: #08435E;
 }
 
 .movie-title-dets-page {
@@ -17,14 +17,14 @@
 }
 
 .back-to-all-movies-btn {
+  background-color: #EDE9EC;
   border: none;
   border-radius: 6px;
   box-shadow: inset 1px 2px 15px 0px #ababab, inset -4px -3px 10px #08435E;
-  background-color: #EDE9EC;
-  font-size: 1.2em;
-  padding: 0.9%;
-  height: 100%;
   cursor: pointer;
+  font-size: 1.2em;
+  height: 100%;
+  padding: 0.9%;
 }
 
 .back-to-all-movies-btn:hover {
@@ -42,9 +42,9 @@
 }
 
 .movie-dets {
-  width: 46%;
   color: #EDE9EC;
   font-weight: bolder;
+  width: 46%;
 }
 
 .dets {
@@ -53,12 +53,12 @@
 }
 
 .movie-overview {
+  color: #EDE9EC;
+  font-size: 1.4em;
+  font-weight: bolder;
+  margin: 1% 0 1% 8%;
   max-height: 40%;
   width: 85%;
-  margin: 1% 0 1% 8%;
-  font-size: 1.4em;
-  color: #EDE9EC;
-  font-weight: bolder;
 }
 
 .rate-form {
@@ -67,7 +67,7 @@
 
 .error-message {
   color: #EDE9EC;
+  font-size: 2.5em;
   font-weight: bolder;
   margin: 2%;
-  font-size: 2.5em;
 }
