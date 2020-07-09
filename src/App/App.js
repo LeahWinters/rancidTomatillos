@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import NavBar from "../NavBar/NavBar";
-import { getMovies } from "../apiCalls";
+import { getMovies, getUserRatings} from "../apiCalls";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieDetails from "../MovieDetails/MovieDetails";
 import RateMovieForm from "../RateMovieForm/RateMovieForm";
@@ -17,12 +17,27 @@ class App extends Component {
       isLoggedIn: false,
       name: "",
       userId: "",
+      userRatings: []
+
     };
   }
-
-  loggingIn = (name) => {
+  
+  
+  loggingIn = async (name) => {
     this.setState({ ...this.state, isLoggedIn: true, name });
+    await this.state.isLoggedIn
+    await this.getRatings();
   };
+
+  getRatings = async () => {
+    try {
+      const currentUserRatings = await getUserRatings(this.state.userId);
+      this.setState({...this.state, userRatings: currentUserRatings.ratings})
+      console.log("ratings",currentUserRatings)
+    } catch(error) {
+      this.setState({ error: error });
+    }
+  }
 
   getUserId = (id) => {
     this.setState({ ...this.state, userId: id });

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-import { postLogin } from "../apiCalls";
+import { postLogin, getUserRatings } from "../apiCalls";
 import { Redirect } from "react-router-dom"
 
 class Login extends Component {
@@ -33,6 +33,9 @@ class Login extends Component {
       }  
       this.props.loggingIn(this.state.name);
       this.props.getUserId(response.user.id);
+      console.log("state", this.props.userId)
+      // await getUserRatings(id);
+
       return response;
     } catch (error) {
       this.setState({ error: error });
