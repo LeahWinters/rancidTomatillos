@@ -5,7 +5,6 @@ import NavBar from "../NavBar/NavBar";
 import { getMovies, getUserRatings} from "../apiCalls";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import RateMovieForm from "../RateMovieForm/RateMovieForm";
 import Login from "../Login/Login";
 
 class App extends Component {
@@ -18,34 +17,43 @@ class App extends Component {
       name: "",
       userId: "",
       userRatings: []
-
     };
   }
   
-  
   loggingIn = async (name) => {
     this.setState({ ...this.state, isLoggedIn: true, name });
-    await this.state.isLoggedIn
+    await this.state.isLoggedIn;
     await this.getRatings();
+  };
+
+  signOut = () => {
+    this.setState({ ...this.state, isLoggedIn: false });
   };
 
   getRatings = async () => {
     try {
       const currentUserRatings = await getUserRatings(this.state.userId);
-      this.setState({...this.state, userRatings: currentUserRatings.ratings})
+      await this.setState({...this.state, userRatings: currentUserRatings.ratings})
       console.log("ratings",currentUserRatings)
     } catch(error) {
       this.setState({ error: error });
     }
-  }
+  };
+
+  // findRatedMovies = () => {
+  //   return this.state.allMovies.reduce((acc, movie) => {
+  //     this.state.userRatings.forEach(rating => {
+  //       if (movie.id === rating.movie_id) {
+  //       acc.push(movie)
+  //       }
+  //     });
+  //     return acc;
+  //   }, []);
+  // }
 
   getUserId = (id) => {
     this.setState({ ...this.state, userId: id });
     console.log("userId in app", this.state.userId);
-  };
-
-  signOut = () => {
-    this.setState({ ...this.state, isLoggedIn: false });
   };
 
   componentDidMount = async () => {
@@ -69,8 +77,7 @@ class App extends Component {
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
                 return (
                   <div className="movie-dets-and-form">
-                    <MovieDetails {...movieToRender}/>
-                    
+                    <MovieDetails { ...movieToRender }/>
                   </div>
                 )
               }}
@@ -80,13 +87,14 @@ class App extends Component {
               component={() => (
                 <div className="home-page-logged-in">
                   <NavBar
-                    isLoggedIn={this.state.isLoggedIn}
-                    signOut={this.signOut}
+                    isLoggedIn={ this.state.isLoggedIn }
+                    signOut={ this.signOut }
                   />
                   <MoviesContainer
-                    allMovies={this.state.allMovies}
-                    userName={this.state.name}
-                    isLoggedIn={this.state.isLoggedIn}
+                    allMovies={ this.state.allMovies }
+                    userName={ this.state.name }
+                    isLoggedIn={ this.state.isLoggedIn }
+                    userRatings={ this.state.userRatings }
                   />
                 </div>
               )}
@@ -96,9 +104,9 @@ class App extends Component {
               component={() => (
                 <div className="login-page">
                   <Login
-                    isLoggedIn={this.state.isLoggedIn}
-                    loggingIn={this.loggingIn}
-                    getUserId={this.getUserId}
+                    isLoggedIn={ this.state.isLoggedIn }
+                    loggingIn={ this.loggingIn }
+                    getUserId={ this.getUserId }
                   />
                 </div>
               )}
@@ -108,16 +116,17 @@ class App extends Component {
               component={() => (
                 <div className="home-page">
                   <NavBar
-                    isLoggedIn={this.state.isLoggedIn}
-                    signOut={this.signOut}
+                    isLoggedIn={ this.state.isLoggedIn }
+                    signOut={ this.signOut }
                   />
                   {this.state.error && (
                     <h2>Oops! Something went wrong. Please try again.</h2>
                   )}
                   <MoviesContainer
-                    allMovies={this.state.allMovies}
-                    userName={this.state.name}
-                    isLoggedIn={this.state.isLoggedIn}
+                    allMovies={ this.state.allMovies }
+                    userName={ this.state.name }
+                    isLoggedIn={ this.state.isLoggedIn }
+                    userRatings={ this.state.userRatings }
                   />
                 </div>
               )}
