@@ -2,7 +2,7 @@ import React from "react";
 import "./MoviesContainer.css";
 import MovieCard from "../MovieCard/MovieCard";
 
-const MoviesContainer = ( { allMovies, userName, isLoggedIn } ) => {
+const MoviesContainer = ( { allMovies, userName, isLoggedIn, userRatings } ) => {
   const movieCards = allMovies.map((movie) => {
     return (
       <MovieCard
@@ -11,8 +11,8 @@ const MoviesContainer = ( { allMovies, userName, isLoggedIn } ) => {
         rating={ movie.average_rating }
         isLoggedIn={ isLoggedIn }
         movieId={ movie.id }
-      />
-      
+        userRatings= { userRatings }
+      /> 
     );
   });
   if(!isLoggedIn) {

@@ -12,6 +12,27 @@ class MovieDetails extends Component {
     };
   }
 
+   // findRatedMovies = () => {
+  //   return this.state.allMovies.reduce((acc, movie) => {
+  //     this.state.userRatings.forEach(rating => {
+  //       if (movie.id === rating.movie_id) {
+  //       acc.push(movie)
+  //       }
+  //     });
+  //     return acc;
+  //   }, []);
+  // }
+
+  // findRatedMovie = () => {
+  //   const foundMovie = this.props.userRatings.find(rating => rating.movie_id === this.props.movieId);
+  //   this.setState({foundRating: foundMovie});
+  //   console.log(foundMovie)
+  // }
+
+  // componentDidMount = () => {
+  //   this.findRatedMovie();
+  // }
+
   componentDidMount = async () => {
     try {
       const response = await getMovieDetails(this.props.id);
@@ -23,6 +44,7 @@ class MovieDetails extends Component {
     } catch (error) {
       this.setState({ error: error });
     }
+    // this.findRatedMovie();
   };
 
   render() {
@@ -51,6 +73,7 @@ class MovieDetails extends Component {
               <p className="dets">
                 Average Rating: {this.state.movieDetails.average_rating}
               </p>
+              <p className="dets">Your Rating: </p>
             </div>
           </div>
           <p className="movie-overview">

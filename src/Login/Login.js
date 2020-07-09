@@ -26,16 +26,12 @@ class Login extends Component {
   returnResponse = async () => {
     try {
       const response = await postLogin(this.state.email, this.state.password);
-      console.log('response', response.user.id)
       if (response.error) {
         this.setState({error: true});
         throw Error(response.statusText);  
       }  
       this.props.loggingIn(this.state.name);
       this.props.getUserId(response.user.id);
-      console.log("state", this.props.userId)
-      // await getUserRatings(id);
-
       return response;
     } catch (error) {
       this.setState({ error: error });
@@ -43,7 +39,6 @@ class Login extends Component {
   };
 
   render() {
-    // console.log(this.state.error);
 
     if(this.props.isLoggedIn) {
       return <Redirect to='/user-movie-page' />;
