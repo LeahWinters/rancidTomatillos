@@ -80,7 +80,11 @@ class MovieDetails extends Component {
             Overview: {this.state.movieDetails.overview}
           </p>
           <div className="rate-form">
-            {<RateMovieForm />}
+            {<RateMovieForm
+              userId={this.props.userId}
+              userRatings={this.props.userRatings}
+              movieId={this.state.movieDetails.id}
+            />}
           </div>
         </section>
       );

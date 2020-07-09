@@ -44,6 +44,7 @@ export const getUserRatings = async (userId) => {
 }
 
 export const postUserRating = async (userId, movieId, rating) => {
+  let numRating = parseInt(rating)
   const response = await fetch(
     `${url}/users/${userId}/ratings`, {
       "method": "POST",
@@ -51,8 +52,8 @@ export const postUserRating = async (userId, movieId, rating) => {
         "content-type": "application/json"
       },
       "body": JSON.stringify({
-        movie_id: `${movieId}`,
-        rating:  `${rating}`
+        movie_id: movieId,
+        rating:  numRating
       })
     }
   )
@@ -70,8 +71,8 @@ export const deleteUserRating = async (userId, ratingId, rating, movieId) => {
         "content-type": "application/json"
       },
       "body": JSON.stringify({
-        movie_id: `${movieId}`,
-        rating:  `${rating}`
+        movie_id: movieId,
+        rating:  rating
       })
     }
   )
