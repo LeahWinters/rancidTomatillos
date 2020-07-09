@@ -69,7 +69,10 @@ class App extends Component {
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
                 return (
                   <div className="movie-dets-and-form">
-                    <MovieDetails {...movieToRender}/>
+                    <MovieDetails {...movieToRender}
+                      userId={this.state.userId}
+                      userRatings={this.state.userRatings}
+                    />
                     
                   </div>
                 )
