@@ -40,16 +40,7 @@ class App extends Component {
     }
   };
 
-  // findRatedMovies = () => {
-  //   return this.state.allMovies.reduce((acc, movie) => {
-  //     this.state.userRatings.forEach(rating => {
-  //       if (movie.id === rating.movie_id) {
-  //       acc.push(movie)
-  //       }
-  //     });
-  //     return acc;
-  //   }, []);
-  // }
+ 
 
   getUserId = (id) => {
     this.setState({ ...this.state, userId: id });
@@ -77,7 +68,7 @@ class App extends Component {
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
                 return (
                   <div className="movie-dets-and-form">
-                    <MovieDetails { ...movieToRender }/>
+                    <MovieDetails { ...movieToRender } userRatings={ this.state.userRatings }/>
                   </div>
                 )
               }}
