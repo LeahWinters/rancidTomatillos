@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import "./MovieDetails.css";
 import { getMovieDetails } from "../apiCalls";
 import RateMovieForm from "../RateMovieForm/RateMovieForm";
@@ -9,6 +10,7 @@ class MovieDetails extends Component {
     this.state = {
       movieDetails: "",
       error: false,
+      userRating: ''
     };
   }
 
@@ -23,11 +25,11 @@ class MovieDetails extends Component {
   //   }, []);
   // }
 
-  // findRatedMovie = () => {
-  //   const foundMovie = this.props.userRatings.find(rating => rating.movie_id === this.props.movieId);
-  //   this.setState({foundRating: foundMovie});
-  //   console.log(foundMovie)
-  // }
+  findRatedMovie = () => {
+    const foundMovie = this.props.userRatings.find(rating => rating.movie_id === this.props.id);
+    this.setState({foundRating: foundMovie.rating});
+    console.log(foundMovie)
+  }
 
   // componentDidMount = () => {
   //   this.findRatedMovie();
@@ -37,6 +39,7 @@ class MovieDetails extends Component {
     try {
       const response = await getMovieDetails(this.props.id);
       this.setState({ ...this.state, movieDetails: response.movie });
+      this.findRatedMovie();
       if (response.error) {
         this.setState({ error: true });
         throw Error(response.statusText);
@@ -44,7 +47,6 @@ class MovieDetails extends Component {
     } catch (error) {
       this.setState({ error: error });
     }
-    // this.findRatedMovie();
   };
 
   render() {
@@ -71,9 +73,9 @@ class MovieDetails extends Component {
               <p className="dets">Runtime: {this.state.movieDetails.runtime}</p>
               <p className="dets">Tagline: {this.state.movieDetails.tagline}</p>
               <p className="dets">
-                Average Rating: {this.state.movieDetails.average_rating}
+                Average Rating: {Math.round(this.state.movieDetails.average_rating)}
               </p>
-              <p className="dets">Your Rating: </p>
+              <p className="dets">Your Rating: {this.state.foundRating}</p>
             </div>
           </div>
           <p className="movie-overview">
@@ -93,9 +95,11 @@ class MovieDetails extends Component {
         <section className="MovieDetails">
           <div className="movie-title-and-back-btn">
             <h2 className="movie-title-dets-page">Opps!</h2>
-            <button className="back-to-all-movies-btn" type="button">
-              View All Movies
-            </button>
+            <Link to={'/user-movie-page'}>
+              <button className="back-to-all-movies-btn" type="button">
+                View All Movies
+              </button>
+            </Link>
           </div>
           <div className="movie-dets-img-holder error-message">Sorry! There was an error loading your movie, please try again!</div>
         </section>

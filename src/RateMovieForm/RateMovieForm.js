@@ -26,7 +26,7 @@ class RateMovieForm extends Component {
           <div className="rate-movie-select">
             <select
               alt="Select your star rating"
-              name="Stars"
+              name="stars"
               value={this.state.stars}
               onChange={this.handleChange}
               className="select-stars"

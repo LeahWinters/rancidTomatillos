@@ -32,7 +32,7 @@ class MovieCard extends Component {
           <div className="movie-name-rate">
             <p className="movie-title">{this.props.title}</p>
             <p className="avg-rating">
-              Average Rating: {this.props.rating} Stars
+              Average Rating: {Math.round(this.props.rating)} Stars
             </p>
           </div>
         </section>
@@ -48,7 +48,7 @@ class MovieCard extends Component {
           <div className="movie-name-rate">
             <p className="movie-title">{this.props.title}</p>
             <p className="avg-rating">
-              Average Rating: {this.props.rating} Stars
+              Average Rating: {Math.round(this.props.rating)} Stars
             </p>
             {this.state.foundRating && (
               <p>Your Rating: {this.state.foundRating.rating}</p>
