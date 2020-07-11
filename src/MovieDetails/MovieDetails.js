@@ -11,6 +11,7 @@ class MovieDetails extends Component {
       movieDetails: "",
       userRating: "",
       isRated: false,
+      currentRating: null
     };
   }
 
@@ -27,6 +28,10 @@ class MovieDetails extends Component {
       });
     }
   };
+
+  getRating = (rating) => {
+    this.setState({...this.state, currentRating: rating})
+  }
 
   updateFormDisplay = () => {
     this.setState({isRated: !this.state.isRated})
@@ -76,7 +81,7 @@ class MovieDetails extends Component {
                 {Math.round(this.state.movieDetails.average_rating)}
               </p>
               {this.state.isRated && (
-                <p className="dets">Your Rating: {this.state.foundRating}</p>
+                <p className="dets">Your Rating: {this.state.foundRating || this.state.currentRating}</p>
               )}
             </div>
           </div>
@@ -94,6 +99,7 @@ class MovieDetails extends Component {
                 rating={this.state.foundRating}
                 isRated={this.state.isRated}
                 updateFormDisplay={this.updateFormDisplay}
+                getRating={this.getRating}
               />
             }
           </div>

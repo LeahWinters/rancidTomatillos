@@ -16,6 +16,7 @@ class RateMovieForm extends Component {
     await postUserRating(this.props.userId, this.props.movieId, this.state.stars);
     this.props.updateFormDisplay();
     this.setState({isRated: true});
+    this.props.getRating(this.state.stars)
   };
 
   handleChange = (e) => {
