@@ -58,7 +58,7 @@ class MovieDetails extends Component {
   };
 
   render() {
-    console.log(this.state.foundMovie);
+    // console.log(this.state.foundMovie);
     if (!this.state.error) {
       return (
         <section className="MovieDetails">

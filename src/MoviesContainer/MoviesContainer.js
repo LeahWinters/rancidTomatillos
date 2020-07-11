@@ -12,6 +12,7 @@ const MoviesContainer = ( { allMovies, userName, isLoggedIn, userRatings } ) => 
         isLoggedIn={ isLoggedIn }
         movieId={ movie.id }
         userRatings= { userRatings }
+        key={ movie.id }
       /> 
     );
   });

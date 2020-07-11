@@ -57,27 +57,24 @@ export const postUserRating = async (userId, movieId, rating) => {
       })
     }
   )
-  console.log(response)
+  // console.log(response)
   const message = await response.json();
   console.log('message', message)
-  return message;
+  // return message;
 }
 
 export const deleteUserRating = async (userId, ratingId) => {
   const response = await fetch(
     `${url}/users/${userId}/ratings/${ratingId}`, {
-      "method": "Delete",
+      "method": "DELETE",
       "headers": {
         "content-type": "application/json"
       },
-      // "body": {
-      // // JSON.stringify({
-      // //   movie_id: movieId,
-      // //   rating:  rating
-      // }
     }
   )
-  const message = await response.json()
-  return message;
+  console.log(response);
+  // const message = await response.json();
+  // console.log(message);
+  return response.status;
 }
 

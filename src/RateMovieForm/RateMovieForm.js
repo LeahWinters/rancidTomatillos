@@ -42,11 +42,6 @@ class RateMovieForm extends Component {
       // throw(error.message)
     }
   }
-  // call api function here
-  // change state to un rated
-
-  // componentDidMount() {
-  // }
   
   render() {
     if(!this.props.isRated) {
