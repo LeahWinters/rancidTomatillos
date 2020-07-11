@@ -45,6 +45,12 @@ class App extends Component {
     console.log("userId in app", this.state.userId);
   };
 
+  updateComponent = async () => {
+    await this.getRatings();
+    const currentState = this.state;
+    await this.setState(currentState);
+  }
+
   componentDidMount = async () => {
     try {
       const movies = await getMovies();
@@ -55,6 +61,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('app state',this.state)
     return (
       <div className="App">
         <BrowserRouter>
@@ -66,9 +73,10 @@ class App extends Component {
                 const movieToRender = this.state.allMovies.find((movie) => movie.id === parseInt(id));
                 return (
                   <div className="movie-dets-and-form">
-                    <MovieDetails {...movieToRender}
-                      userId={this.state.userId}
-                      userRatings={this.state.userRatings}
+                    <MovieDetails { ...movieToRender }
+                      userId= {this.state.userId }
+                      userRatings={ this.state.userRatings }
+                      updateComponent={ this.updateComponent }
                     />
                   </div>
                 )
@@ -87,6 +95,7 @@ class App extends Component {
                     userName={ this.state.name }
                     isLoggedIn={ this.state.isLoggedIn }
                     userRatings={ this.state.userRatings }
+                    updateComponent={ this.updateComponent }
                   />
                 </div>
               )}

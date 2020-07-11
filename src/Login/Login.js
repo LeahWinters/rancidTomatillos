@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-import { postLogin, getUserRatings } from "../apiCalls";
+import { postLogin } from "../apiCalls";
 import { Redirect } from "react-router-dom"
 
 class Login extends Component {
