@@ -6,45 +6,38 @@ class RateMovieForm extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      isRated:  false ,
+      isRated: false,
       stars: 1,
       error: ''
     };
-    // if(this.props.rating) {
-    //   this.setState({ isRated: true})      
-    // }
   }
 
   handleSubmit = async () => {
-    await postUserRating(this.props.userId, this.props.movieId, this.state.stars)
+    await postUserRating(this.props.userId, this.props.movieId, this.state.stars);
+    this.props.updateFormDisplay();
+    this.setState({isRated: true});
   };
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value});
   };
 
-  checkRatedProp = () => {
-    if(this.props.isRated) {
-      return this.setState({isRated: true})
-    }
-  };
-
   handleDelete = async () => {
     try {
       const message = await deleteUserRating(this.props.userId, this.props.ratedId)
       console.log(message)
-      if(message.statusText != "OK") {
+      if(message.statusText !== "OK") {
         this.setState({ error: message.message})
       }
       this.setState({ isRated: false })
     } catch(error) {
       this.setState({ error: error.message})
-      // throw(error.message)
     }
+    this.props.updateFormDisplay();
   }
   
   render() {
-    if(!this.props.isRated) {
+    if(!this.props.isRated && !this.state.isRated) {
       return (
         <section className="RateMovieForm">
           <h4 className="rate-this-movie">Rate This Movie:</h4>
@@ -80,13 +73,11 @@ class RateMovieForm extends Component {
           </form>
         </section>
       );
-    }
-    if(this.props.foundMovie.id) {
+    } else {
       return (
         <section className="RateMovieForm">
           <div className="rate-this-movie">
             <h6 className="delete-this-movie">Delete Movie Rating</h6>
-            {}
             <button
               className="delete-button"
               type="button"

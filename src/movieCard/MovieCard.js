@@ -13,7 +13,6 @@ class MovieCard extends Component {
   findRatedMovie = () => {
     const foundMovie = this.props.userRatings.find(rating => rating.movie_id === this.props.movieId);
     this.setState({foundRating: foundMovie});
-    console.log(foundMovie)
   }
 
   componentDidMount = () => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./MovieDetails.css";
 import { getMovieDetails } from "../apiCalls";
 import RateMovieForm from "../RateMovieForm/RateMovieForm";
@@ -13,17 +13,6 @@ class MovieDetails extends Component {
       isRated: false,
     };
   }
-
-  // findRatedMovies = () => {
-  //   return this.state.allMovies.reduce((acc, movie) => {
-  //     this.state.userRatings.forEach(rating => {
-  //       if (movie.id === rating.movie_id) {
-  //       acc.push(movie)
-  //       }
-  //     });
-  //     return acc;
-  //   }, []);
-  // }
 
   findRatedMovie = () => {
     const foundMovie = this.props.userRatings.find(
@@ -39,9 +28,9 @@ class MovieDetails extends Component {
     }
   };
 
-  // componentDidMount = () => {
-  //   this.findRatedMovie();
-  // }
+  updateFormDisplay = () => {
+    this.setState({isRated: !this.state.isRated})
+  }
 
   componentDidMount = async () => {
     try {
@@ -58,14 +47,13 @@ class MovieDetails extends Component {
   };
 
   render() {
-    // console.log(this.state.foundMovie);
     if (!this.state.error) {
       return (
         <section className="MovieDetails">
           <div className="movie-title-and-back-btn">
             <h2 className="movie-title-dets-page">{this.props.title}</h2>
             <Link to="/user-movie-page">
-              <button className="back-to-all-movies-btn" type="button">
+              <button className="back-to-all-movies-btn" type="button" onClick={() => this.props.updateComponent()}>
                 View All Movies
               </button>
             </Link>
@@ -105,6 +93,7 @@ class MovieDetails extends Component {
                 ratedId={this.state.foundMovieId}
                 rating={this.state.foundRating}
                 isRated={this.state.isRated}
+                updateFormDisplay={this.updateFormDisplay}
               />
             }
           </div>
