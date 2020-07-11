@@ -17,7 +17,7 @@ class RateMovieForm extends Component {
 
   handleSubmit = async () => {
     await postUserRating(this.props.userId, this.props.movieId, this.state.stars)
-  }
+  };
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value});
@@ -27,7 +27,7 @@ class RateMovieForm extends Component {
     if(this.props.isRated) {
       return this.setState({isRated: true})
     }
-  }
+  };
 
   handleDelete = async () => {
     try {
@@ -89,7 +89,7 @@ class RateMovieForm extends Component {
     if(this.props.foundMovie.id) {
       return (
         <section className="RateMovieForm">
-          <div class="rate-this-movie">
+          <div className="rate-this-movie">
             <h6 className="delete-this-movie">Delete Movie Rating</h6>
             {}
             <button
