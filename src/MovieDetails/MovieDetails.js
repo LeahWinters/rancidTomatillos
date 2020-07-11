@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, Router } from 'react-router-dom'
 import "./MovieDetails.css";
 import { getMovieDetails } from "../apiCalls";
 import RateMovieForm from "../RateMovieForm/RateMovieForm";
@@ -8,7 +9,8 @@ class MovieDetails extends Component {
     super(props);
     this.state = {
       movieDetails: "",
-      error: false,
+      userRating: '',
+      isRated : false
     };
   }
 
@@ -23,37 +25,41 @@ class MovieDetails extends Component {
   //   }, []);
   // }
 
-  // findRatedMovie = () => {
-  //   const foundMovie = this.props.userRatings.find(rating => rating.movie_id === this.props.movieId);
-  //   this.setState({foundRating: foundMovie});
-  //   console.log(foundMovie)
-  // }
-
-  // componentDidMount = () => {
-  //   this.findRatedMovie();
-  // }
-
-  componentDidMount = async () => {
-    try {
-      const response = await getMovieDetails(this.props.id);
-      this.setState({ ...this.state, movieDetails: response.movie });
-      if (response.error) {
-        this.setState({ error: true });
-        throw Error(response.statusText);
-      }
-    } catch (error) {
-      this.setState({ error: error });
+  findRatedMovie = () => {
+    const foundMovie = this.props.userRatings.find(rating => rating.movie_id === this.props.id) ;
+    if(foundMovie) {
+      this.setState({foundMovie: foundMovie,  foundRating: foundMovie.rating, foundMovieId: foundMovie.id, isRated: true});
     }
-    // this.findRatedMovie();
-  };
-
-  render() {
+  }
+  
+  // componentDidMount = () => {
+    //   this.findRatedMovie();
+    // }
+    
+    componentDidMount = async () => {
+      try {
+        const response = await getMovieDetails(this.props.id);
+        this.setState({ ...this.state, movieDetails: response.movie });
+        this.findRatedMovie();
+        if (response.error) {
+          this.setState({ error: true });
+          throw Error(response.statusText);
+        }
+      } catch (error) {
+        this.setState({ error: error });
+      } 
+    };
+    
+    render() {
+      console.log(this.state.foundMovie)
     if (!this.state.error) {
       return (
         <section className="MovieDetails">
           <div className="movie-title-and-back-btn">
             <h2 className="movie-title-dets-page">{this.props.title}</h2>
-            <button className="back-to-all-movies-btn" type="button">
+            <button 
+            className="back-to-all-movies-btn" 
+            type="button">
               View All Movies
             </button>
           </div>
@@ -71,9 +77,9 @@ class MovieDetails extends Component {
               <p className="dets">Runtime: {this.state.movieDetails.runtime}</p>
               <p className="dets">Tagline: {this.state.movieDetails.tagline}</p>
               <p className="dets">
-                Average Rating: {this.state.movieDetails.average_rating}
+                Average Rating: {Math.round(this.state.movieDetails.average_rating)}
               </p>
-              <p className="dets">Your Rating: </p>
+              {this.state.isRated && <p className="dets">Your Rating: {this.state.foundRating}</p>}
             </div>
           </div>
           <p className="movie-overview">
@@ -82,20 +88,25 @@ class MovieDetails extends Component {
           <div className="rate-form">
             {<RateMovieForm
               userId={this.props.userId}
+              foundMovie={this.state.foundMovie}
               userRatings={this.props.userRatings}
               movieId={this.state.movieDetails.id}
+              ratedId={this.state.foundMovieId}
+              rating={this.state.foundRating}
+              isRated={this.state.isRated}
             />}
           </div>
         </section>
       );
     } else {
+      console.log(this.state.error)
       return (
         <section className="MovieDetails">
           <div className="movie-title-and-back-btn">
             <h2 className="movie-title-dets-page">Opps!</h2>
-            <button className="back-to-all-movies-btn" type="button">
-              View All Movies
-            </button>
+              <button className="back-to-all-movies-btn" type="button">
+                View All Movies
+              </button>
           </div>
           <div className="movie-dets-img-holder error-message">Sorry! There was an error loading your movie, please try again!</div>
         </section>

@@ -40,8 +40,6 @@ class App extends Component {
     }
   };
 
- 
-
   getUserId = (id) => {
     this.setState({ ...this.state, userId: id });
     console.log("userId in app", this.state.userId);

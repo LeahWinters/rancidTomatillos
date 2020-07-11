@@ -1,19 +1,25 @@
 .Login {
+  /* background: url('https://www.wallpapersdsc.net/wp-content/uploads/2016/09/Popcorn-HD-Wallpaper.jpg');  */
+  background: url('https://www.jakpost.travel/wimages/large/147-1476565_back-to-17-popcorn-wallpapers-hd-popcorn-high.jpg'); 
+  background-size: cover;
   height: 100vh;
-  /* background: url('https://images.unsplash.com/photo-1578849278619-e73505e9610f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80'); */
+  display: flex;
+  text-shadow: 1px 1px 3px black;
 }
 
 .login-form {
+  backdrop-filter: blur(15px);
   background-color:#08435e;
   border-radius: 30px;
-  box-shadow: inset 0px 0px 13px 0px #000000c2;
+  box-shadow: inset 0px 0px 13px 0px #000000c2, inset 0px 0px 14px 3px #052c3e, inset 0px 1px 20px 12px #227296; 
+  /* box-shadow: inset 0px 0px 13px 0px #000000c2, inset 0px 0px 14px 3px #000000, inset 0px 1px 20px 12px #e4e4e4db; */
   color: #ede9ec;
   justify-self: center;
   margin: auto;
-  margin-top: 15vh;
-  min-height: 40%;
+  max-height: 43%;
   padding: 30px;
-  width: 30%;
+  max-width: 26%;
+  min-width: 300px;
 }
 
 .login-input {
@@ -69,7 +75,7 @@
   height: 40px;
   margin-top: 4%;
   outline: none;
-  width: 100%
+  width: 100%;
 }
 
 .login-btn:hover {

@@ -56,3 +56,27 @@
   margin-top: 4%;
   width: 23%;
 }
+
+.delete-this-movie {
+  
+}
+.delete-button {
+
+  background: #991e29;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 4px 7px 13px 0px #000000c2, inset 4px 7px 13px 0px #fb5858;
+  color: #ede9ec;
+  cursor: pointer;
+  font-size: 18px;
+  height: 40px;
+  margin-top: 4%;
+  outline: none;
+  width: 100%;
+  text-shadow: 1px 1px 4px black;
+
+}
+
+.delete-button:hover {
+  box-shadow: inset 4px 7px 13px 0px #000000c2;
+}

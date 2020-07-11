@@ -63,17 +63,18 @@ export const postUserRating = async (userId, movieId, rating) => {
   return message;
 }
 
-export const deleteUserRating = async (userId, ratingId, rating, movieId) => {
+export const deleteUserRating = async (userId, ratingId) => {
   const response = await fetch(
     `${url}/users/${userId}/ratings/${ratingId}`, {
       "method": "Delete",
       "headers": {
         "content-type": "application/json"
       },
-      "body": JSON.stringify({
-        movie_id: movieId,
-        rating:  rating
-      })
+      // "body": {
+      // // JSON.stringify({
+      // //   movie_id: movieId,
+      // //   rating:  rating
+      // }
     }
   )
   const message = await response.json()
