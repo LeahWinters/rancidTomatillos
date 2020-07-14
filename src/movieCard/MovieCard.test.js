@@ -60,7 +60,7 @@ describe("MovieCard", () => {
     expect(userRating).toBeInTheDocument();
   });
 
-  it('Should bring logged in user to a movie details page upon click of the View Movie Details button', async () => {
+  it.skip('Should bring logged in user to a movie details page upon click of the View Movie Details button', async () => {
     const { getByText } = render(
       <MemoryRouter>
         <MovieCard
