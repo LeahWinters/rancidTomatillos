@@ -7,8 +7,27 @@ import { getMovies } from '../apiCalls.js';
 jest.mock('../apiCalls.js');
 
 describe('Login Page', () => {
-  it('should equal true', () => {
+  it.only('should equal true', () => {
     expect(true).toBe(true)
   })
+
+  it.skip('Should render login form', () => {
+    
+    // Set up:
+    const { getByText, getByPlaceHolderText } = render(
+      <Login />
+    );
+
+    // execute:
+
+    const name = getByText('Name:');
+    
+  })
   
+  // it('Should be able to login', () => {
+  //   const mockLogin = jest.fn();
+  //   const { getByText, getByPlaceHolderText } = render(
+  //     <Login />
+  //   )
+  // })
 })
