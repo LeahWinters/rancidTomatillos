@@ -81,6 +81,7 @@ class Login extends Component {
           <button
             className="login-btn"
             type="submit"
+            data-testid="submit-login-btn"
             onClick={ this.handleSubmit }
           >
             Login

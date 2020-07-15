@@ -26,7 +26,6 @@ class RateMovieForm extends Component {
   handleDelete = async () => {
     try {
       const message = await deleteUserRating(this.props.userId, this.props.ratedId)
-      console.log(message)
       if(message.statusText !== "OK") {
         this.setState({ error: message.message})
       }

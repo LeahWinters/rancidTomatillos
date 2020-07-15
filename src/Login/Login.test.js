@@ -28,7 +28,7 @@ describe('Login Page', () => {
   it('Should be able to login', () => {
     const mockLogin = jest.fn();
 
-    const { getByText, getByPlaceHolderText } = render(
+    const { getByText, getByPlaceholderText } = render(
       <Login />
     );
 
