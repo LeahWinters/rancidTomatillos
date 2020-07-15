@@ -14,7 +14,6 @@ class NavBar extends Component {
   };
 
   render() {
-
     if (!this.props.isLoggedIn) {
       return (
         <section className="NavBar">

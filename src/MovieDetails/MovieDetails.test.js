@@ -7,39 +7,44 @@ import { MemoryRouter } from "react-router-dom";
 jest.mock("../apiCalls.js");
 
 describe("Movie Details Page", () => {
+
+  let mockGetSingleMovie;
+
+  beforeEach(() => {
+    mockGetSingleMovie = {
+      movie: {
+        id: 475430,
+        title: "Artemis Fowl",
+        poster_path:
+          "https://image.tmdb.org/t/p/original//tI8ocADh22GtQFV28vGHaBZVb0U.jpg",
+        backdrop_path:
+          "https://image.tmdb.org/t/p/original//o0F8xAt8YuEm5mEZviX5pEFC12y.jpg",
+        release_date: "2020-06-12",
+        overview:
+          "Artemis Fowl is a 12-year-old genius and descendant of a long line of criminal masterminds. He soon finds himself in an epic battle against a race of powerful underground fairies who may be behind his father's disappearance.",
+        genres: ["Adventure", "Fantasy", "Science Fiction", "Family"],
+        budget: 125000000,
+        revenue: 0,
+        runtime: 95,
+        tagline: "Remember the name",
+        average_rating: 3,
+      },
+    };
+  });
+
   it("should equal true", () => {
     expect(true).toBe(true);
   });
 
   it.skip("Should render a single movies details", async () => {
-    getMovieDetails.mockResolvedValue(() => {
-      return Promise.resolve({
-        movie: {
-          id: 603,
-          title: "The Matrix",
-          poster_path:
-            "https://image.tmdb.org/t/p/original//f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
-          backdrop_path:
-            "https://image.tmdb.org/t/p/original//ByDf0zjLSumz1MP1cDEo2JWVtU.jpg",
-          release_date: "1999-03-30",
-          overview:
-            "Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents fighting the vast and powerful computers who now rule the earth.",
-          genres: ["Action", "Science Fiction"],
-          budget: 63000000,
-          revenue: 463517383,
-          runtime: 136,
-          tagline: "Welcome to the Real World.",
-          average_rating: 6.428571428571429,
-        },
-      });
-    });
+    getMovieDetails.mockResolvedValueOnce(mockGetSingleMovie);
 
     const movieToRender = {
-      title: "The Matrix",
+      title: "Artemis Fowl",
       movieId: 603,
       poster_path:
         "https://image.tmdb.org/t/p/original//f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
-      average_rating: 2,
+      average_rating: 3,
     };
 
     const { getByText } = render(
@@ -50,7 +55,7 @@ describe("Movie Details Page", () => {
 
     // getMovieDetails(603);
 
-    const title = await waitFor( () => getByText("The Matrix"));
+    const title = getByText("Artemis Fowl");
     // const viewAllMoviesBtn = await waitFor( () => getByText("View All Movies"));
 
     expect(title).toBeInTheDocument();

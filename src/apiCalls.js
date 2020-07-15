@@ -31,7 +31,6 @@ export const getMovieDetails = async (movieId) => {
     `${url}/movies/${movieId}`
   );
   const movieDetails = await response.json();
-  console.log(movieDetails)
   return movieDetails;
 }
 
@@ -57,10 +56,8 @@ export const postUserRating = async (userId, movieId, rating) => {
       })
     }
   )
-  // console.log(response)
   const message = await response.json();
-  console.log('message', message)
-  // return message;
+  return message;
 }
 
 export const deleteUserRating = async (userId, ratingId) => {
@@ -72,9 +69,6 @@ export const deleteUserRating = async (userId, ratingId) => {
       },
     }
   )
-  console.log(response);
-  // const message = await response.json();
-  // console.log(message);
   return response.status;
 }
 

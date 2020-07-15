@@ -57,11 +57,7 @@
   width: 23%;
 }
 
-.delete-this-movie {
-  
-}
 .delete-button {
-
   background: #991e29;
   border: none;
   border-radius: 20px;
@@ -74,7 +70,6 @@
   outline: none;
   width: 100%;
   text-shadow: 1px 1px 4px black;
-
 }
 
 .delete-button:hover {

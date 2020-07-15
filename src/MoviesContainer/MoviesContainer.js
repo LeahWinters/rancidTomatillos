@@ -15,16 +15,16 @@ class MoviesContainer extends Component {
   render() {
     const movieCards = this.props.allMovies.map((movie) => {
       return (
-          <MovieCard
-            title={movie.title}
-            movieImg={movie.poster_path}
-            rating={movie.average_rating}
-            isLoggedIn={this.props.isLoggedIn}
-            movieId={movie.id}
-            userRatings={this.props.userRatings}
-            key={movie.id}
-            updateComponent={this.updateComponent}
-          />
+        <MovieCard
+          title={movie.title}
+          movieImg={movie.poster_path}
+          rating={movie.average_rating}
+          isLoggedIn={this.props.isLoggedIn}
+          movieId={movie.id}
+          userRatings={this.props.userRatings}
+          key={movie.id}
+          updateComponent={this.updateComponent}
+        />
       );
     });
     if (!this.props.isLoggedIn) {
