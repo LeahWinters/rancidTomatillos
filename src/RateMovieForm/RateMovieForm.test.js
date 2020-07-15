@@ -40,10 +40,6 @@ describe('Rate Movie Form', () => {
 
     fireEvent.mouseDown(getByText('1'));
 
-    // fireEvent.click(getByText('3'));
-    // fireEvent.change(getByPlaceholderText('1'), {target: {value: '5'}});
-    // fireEvent.change(getByPlaceholderText('Password'), {target: {value: 'asdf123'}});
-
     fireEvent.click(getByText('Rate!'));
 
     expect(mockRate).toHaveBeenCalledTimes(1);

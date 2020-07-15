@@ -106,7 +106,6 @@ class MovieDetails extends Component {
         </section>
       );
     } else {
-      console.log(this.state.error);
       return (
         <section className="MovieDetails">
           <div className="movie-title-and-back-btn">
