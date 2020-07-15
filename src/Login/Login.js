@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Login.css";
 import { postLogin } from "../apiCalls";
 import { Redirect } from "react-router-dom"
+import { PropTypes } from 'prop-types';
 
 class Login extends Component {
   constructor(props) {
@@ -92,4 +93,9 @@ class Login extends Component {
   }
 }
 
+Login.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  loggingIn: PropTypes.func,
+  getUserId: PropTypes.func,
+}
 export default Login;

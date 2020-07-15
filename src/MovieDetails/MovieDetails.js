@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./MovieDetails.css";
 import { getMovieDetails } from "../apiCalls";
 import RateMovieForm from "../RateMovieForm/RateMovieForm";
+import { PropTypes } from 'prop-types';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -122,6 +123,12 @@ class MovieDetails extends Component {
       );
     }
   }
+}
+
+MovieDetails.propTypes = {
+  userId: PropTypes.number,
+  userRatings: PropTypes.array,
+  updateComponent: PropTypes.func
 }
 
 export default MovieDetails;

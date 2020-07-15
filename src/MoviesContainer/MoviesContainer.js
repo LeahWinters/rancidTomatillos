@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./MoviesContainer.css";
-import MovieCard from "../movieCard/MovieCard";
+import MovieCard from "../MovieCard/MovieCard";
 import { BrowserRouter } from "react-router-dom";
+import { PropTypes } from 'prop-types';
 
 class MoviesContainer extends Component {
   constructor(props) {
@@ -37,6 +38,14 @@ class MoviesContainer extends Component {
       );
     }
   }
+}
+
+MoviesContainer.propTypes = {
+  allMovies: PropTypes.arrayOf(PropTypes.object),
+  userName: PropTypes.string,
+  isLoggedIn: PropTypes.bool,
+  userRatings: PropTypes.arrayOf(PropTypes.object),
+  updateComponent: PropTypes.func
 }
 
 export default MoviesContainer;
