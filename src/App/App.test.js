@@ -71,7 +71,7 @@ describe('App', () => {
 
   // should render movies
 
-  it.only("Should bring logged in user to a movie details page upon click of the View Movie Details button", async () => {
+  it.skip("Should bring logged in user to a movie details page upon click of the View Movie Details button", async () => {
     const movieToRender = {
       title: "The Matrix",
       movieId: 603,
