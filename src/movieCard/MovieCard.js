@@ -64,6 +64,7 @@ class MovieCard extends Component {
     }
   }
 }
+
 MovieCard.propType ={
   title: PropTypes.string,
   movieImg: PropTypes.string,
@@ -72,7 +73,6 @@ MovieCard.propType ={
   movieId: PropTypes.number,
   userRatings: PropTypes.number,
   updateComponent: PropTypes.func
-
 }
 
 export default MovieCard;

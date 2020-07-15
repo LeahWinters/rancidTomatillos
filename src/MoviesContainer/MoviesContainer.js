@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./MoviesContainer.css";
 import MovieCard from "../MovieCard/MovieCard";
-import { BrowserRouter } from "react-router-dom";
 import { PropTypes } from 'prop-types';
 
 class MoviesContainer extends Component {
