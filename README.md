@@ -1,5 +1,10 @@
 Rancid Tomatillos was a paired project in module 3. It is a movie review application that allows a user to login, and once they are logged in, they can view a variety of fun facts about the selected movie. They can also rate the movie and see the movies average rating which comes from all of the other users ratings. We were given an api to work with, but we also had to create our own api using Express. This project was created with React, and tested with React Testing Library and Jest.
 
+### Contributors:
+
+Léah Winters: https://github.com/LeahWinters
+Justin Volk: https://github.com/jdvolk
+
 ### Home Page:
 
 <img width="1439" alt="Screen Shot 2020-07-15 at 4 55 31 PM" src="https://user-images.githubusercontent.com/55927708/87608009-0946af00-c6bc-11ea-88ba-38d63d4131a4.png">
@@ -17,11 +22,6 @@ Rancid Tomatillos was a paired project in module 3. It is a movie review applica
 <img width="1440" alt="Screen Shot 2020-07-15 at 4 57 03 PM" src="https://user-images.githubusercontent.com/55927708/87608117-4f037780-c6bc-11ea-9869-8c2e864bf237.png">
 
 <img width="1440" alt="Screen Shot 2020-07-15 at 4 57 16 PM" src="https://user-images.githubusercontent.com/55927708/87608126-5460c200-c6bc-11ea-8ed1-c40a8bc4a1d3.png">
-
-### Contributors:
-
-Léah Winters: https://github.com/LeahWinters
-Justin Volk: https://github.com/jdvolk
 
 ### To view this application follow the steps below:
 
